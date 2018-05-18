@@ -133,7 +133,7 @@ func main() {
 	var ticker *time.Ticker = time.NewTicker(time.Duration(10) * time.Second)
 	c := make(chan int, 1)
 	go func() {
-		for _ := range ticker.C {
+		for _ = range ticker.C {
 			// Enqueue the seed, which is the first entry in the dup map
 			dup[*seed] = true
 			_, err = q.SendStringGet(Host...)
