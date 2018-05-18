@@ -13,7 +13,7 @@ func main() {
 	f.AutoClose = true
 	f.WorkerIdleTTL = time.Second
 	queue := f.Start()
-	queue.SendStringHead("http://google.com", "http://golang.org", "http://golang.org/doc")
+	queue.SendStringHead("https://www.ifa.plus", "https://b1.ifa.plus/")
 	queue.Block()
 }
 
