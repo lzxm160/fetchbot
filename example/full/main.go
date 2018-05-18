@@ -134,13 +134,14 @@ func main() {
 	c := make(chan int, 1)
 	go func() {
 		for _ = range ticker.C {
+			qq := f.Start()
 			// Enqueue the seed, which is the first entry in the dup map
 			dup[*seed] = true
-			_, err = q.SendStringGet(Host...)
+			_, err = qq.SendStringGet(Host...)
 			if err != nil {
 				fmt.Printf("[ERR] GET %s - %s\n", *seed, err)
 			}
-			q.Block()
+			qq.Block()
 		}
 	}()
 	<-c
