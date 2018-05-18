@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/PuerkitoBio/fetchbot"
-	"github.com/PuerkitoBio/goquery"
+	"../../fetchbot"
+	"../../goquery"
 )
 
 var (
