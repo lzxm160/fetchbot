@@ -111,7 +111,7 @@ func main() {
 	}
 
 	// Start processing
-	// q := f.Start()
+	q := f.Start()
 	// q.SendStringHead(Host...)
 	// q.Block()
 	// if a stop or cancel is requested after some duration, launch the goroutine
