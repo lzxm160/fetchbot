@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	Host=[]string{
+	Host=[13]string{
 		"https://www.ifa.plus",
 		"https://b1.ifa.plus",
 		"https://b2.ifa.plus",
