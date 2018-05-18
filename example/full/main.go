@@ -17,6 +17,22 @@ import (
 )
 
 var (
+	Host=[]string{
+		"https://www.ifa.plus",
+		"https://b1.ifa.plus",
+		"https://b2.ifa.plus",
+		"https://b3.ifa.plus",
+		"https://b4.ifa.plus",
+		"https://b5.ifa.plus",
+		"https://b6.ifa.plus",
+		"https://b7.ifa.plus",
+		"https://b8.ifa.plus",
+		"https://b9.ifa.plus",
+		"https://b10.ifa.plus",
+		"https://b11.ifa.plus",
+		"https://b12.ifa.plus"
+	}
+
 	// Protect access to dup
 	mu sync.Mutex
 	// Duplicates table
@@ -97,7 +113,7 @@ func main() {
 
 	// Start processing
 	q := f.Start()
-	q.SendStringHead("https://www.ifa.plus", "https://b1.ifa.plus/")
+	q.SendStringHead(Host...)
 	queue.Block()
 	// if a stop or cancel is requested after some duration, launch the goroutine
 	// that will stop or cancel.
