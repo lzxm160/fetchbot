@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	Host=[13]string{
+	Host = [13]string{
 		"https://www.ifa.plus",
 		"https://b1.ifa.plus",
 		"https://b2.ifa.plus",
@@ -30,8 +30,7 @@ var (
 		"https://b9.ifa.plus",
 		"https://b10.ifa.plus",
 		"https://b11.ifa.plus",
-		"https://b12.ifa.plus"
-	}
+		"https://b12.ifa.plus"}
 
 	// Protect access to dup
 	mu sync.Mutex
