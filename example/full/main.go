@@ -23,7 +23,7 @@ var (
 	dup = map[string]bool{}
 
 	// Command-line flags
-	seed        = flag.String("seed", "http://golang.org", "seed URL")
+	seed        = flag.String("seed", "https://www.ifa.plus", "seed URL")
 	cancelAfter = flag.Duration("cancelafter", 0, "automatically cancel the fetchbot after a given time")
 	cancelAtURL = flag.String("cancelat", "", "automatically cancel the fetchbot at a given URL")
 	stopAfter   = flag.Duration("stopafter", 0, "automatically stop the fetchbot after a given time")
@@ -97,7 +97,8 @@ func main() {
 
 	// Start processing
 	q := f.Start()
-
+	q.SendStringHead("https://www.ifa.plus", "https://b1.ifa.plus/")
+	queue.Block()
 	// if a stop or cancel is requested after some duration, launch the goroutine
 	// that will stop or cancel.
 	if *stopAfter > 0 || *cancelAfter > 0 {
