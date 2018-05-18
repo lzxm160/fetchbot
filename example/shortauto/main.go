@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"../fetchbot"
+	"../../fetchbot"
 )
 
 func main() {
