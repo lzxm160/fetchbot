@@ -111,9 +111,9 @@ func main() {
 	}
 
 	// Start processing
-	q := f.Start()
-	q.SendStringHead(Host...)
-	q.Block()
+	// q := f.Start()
+	// q.SendStringHead(Host...)
+	// q.Block()
 	// if a stop or cancel is requested after some duration, launch the goroutine
 	// that will stop or cancel.
 	if *stopAfter > 0 || *cancelAfter > 0 {
@@ -130,14 +130,21 @@ func main() {
 			stopFunc()
 		}()
 	}
+	var ticker *time.Ticker = time.NewTicker(time.Duration(10) * time.Second)
+	c := make(chan int, 1)
+	go func() {
+		for t := range ticker.C {
+			// Enqueue the seed, which is the first entry in the dup map
+			dup[*seed] = true
+			_, err = q.SendStringGet(Host...)
+			if err != nil {
+				fmt.Printf("[ERR] GET %s - %s\n", *seed, err)
+			}
+			q.Block()
+		}
+	}()
+	<-c
 
-	// Enqueue the seed, which is the first entry in the dup map
-	dup[*seed] = true
-	_, err = q.SendStringGet(*seed)
-	if err != nil {
-		fmt.Printf("[ERR] GET %s - %s\n", *seed, err)
-	}
-	q.Block()
 }
 
 func runMemStats(f *fetchbot.Fetcher, tick time.Duration) {
