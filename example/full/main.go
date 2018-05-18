@@ -113,7 +113,7 @@ func main() {
 	// Start processing
 	q := f.Start()
 	q.SendStringHead(Host...)
-	queue.Block()
+	q.Block()
 	// if a stop or cancel is requested after some duration, launch the goroutine
 	// that will stop or cancel.
 	if *stopAfter > 0 || *cancelAfter > 0 {
