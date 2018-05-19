@@ -27,7 +27,7 @@ var (
 		"http://www.91lym.com/"}
 )
 
-func start(url string) {
+func start(url string) (ret string) {
 	// Instantiate default collector
 	c := colly.NewCollector(
 	// MaxDepth is 1, so only the links on the scraped page
@@ -82,7 +82,8 @@ func start(url string) {
 		// link := e.Attr("href")
 		// Print link
 		// fmt.Printf("Link found: %q -> %s\n", e.Text, link)
-		fmt.Printf("时间\t\t比赛名称\t4:4额度\n")
+		ret += "时间\t\t比赛名称\t\t4:4额度\n"
+		fmt.Printf("时间\t\t比赛名称\t\t4:4额度\n")
 		e.ForEach("table tbody tr", func(_ int, el *colly.HTMLElement) {
 			// mail := Mail{
 			// 	Title:   el.ChildText("td:nth-of-type(1)"),
@@ -94,6 +95,7 @@ func start(url string) {
 			// threads[threadSubject] = append(threads[threadSubject], mail)
 
 			fmt.Printf("%s\t%s\t%s\n", el.ChildText("td:first-child"), el.ChildText("td:nth-child(2)"), el.ChildText("td:nth-child(3)"))
+			ret += fmt.Sprintf("%s\t%s\t%s\n", el.ChildText("td:first-child"), el.ChildText("td:nth-child(2)"), el.ChildText("td:nth-child(3)"))
 		})
 
 		// c.Visit(e.Request.AbsoluteURL(link))
@@ -108,16 +110,25 @@ func start(url string) {
 
 	})
 	c.Wait()
+	return
 }
 func main() {
-	var ticker *time.Ticker = time.NewTicker(time.Duration(10) * time.Second)
-	c := make(chan int, 1)
-	go func() {
-		for _ = range ticker.C {
-			for _, u := range Host {
-				start(u)
-			}
+	// var ticker *time.Ticker = time.NewTicker(time.Duration(10) * time.Second)
+	// c := make(chan int, 1)
+	// go func() {
+	// 	for _ = range ticker.C {
+	// 		for _, u := range Host {
+	// 			start(u)
+	// 		}
+	// 	}
+	// }()
+	// <-c
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		for _, u := range Host {
+			ret := start(u)
 		}
-	}()
-	<-c
+		fmt.Fprintf(w, ret)
+	})
+
+	log.Fatal(http.ListenAndServe(":80", nil))
 }
