@@ -24,5 +24,6 @@ func main() {
 	})
 
 	// Start scraping on https://en.wikipedia.org
-	c.Visit("https://www.ifa.plus/pc/")
+	// c.Visit("https://www.ifa.plus/pc/")
+	c.Visit("https://en.wikipedia.org")
 }
