@@ -45,9 +45,9 @@ func get(url string) {
 	// Load the HTML document
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("NewDocumentFromReader:", err)
 	}
-	fmt.Println(doc)
+	fmt.Println("doc:", doc)
 	// Find the review items
 	// doc.Find(".sidebar-reviews article .content-block").Each(func(i int, s *goquery.Selection) {
 	// 	// For each item found, get the band and title
