@@ -39,6 +39,11 @@ func main() {
 		// 	return
 		// }
 		// ioutil.WriteFile(colly.SanitizeFileName(e.Request.Ctx.Get("date")+"_"+e.Request.Ctx.Get("slug"))+".json", jsonData, 0644)
+		link := e.Attr("href")
+		// Print link
+		fmt.Printf("Link found: %q -> %s\n", e.Text, link)
+
+		c.Visit(e.Request.AbsoluteURL(link))
 		fmt.Println("e:", e)
 	})
 	//lianjie body
