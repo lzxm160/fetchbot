@@ -2,15 +2,15 @@ package main
 
 import (
 	"../../goquery"
-	"bytes"
-	"flag"
+	// "bytes"
+	// "flag"
 	"fmt"
-	"log"
+	// "log"
 	"net/http"
 	"net/url"
-	"runtime"
-	"strings"
-	"sync"
+	// "runtime"
+	// "strings"
+	// "sync"
 	"time"
 )
 
