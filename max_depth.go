@@ -22,7 +22,7 @@ var (
 	// 	"https://b11.ifa.plus/pc/",
 	// 	"https://b12.ifa.plus/pc/"}
 	Host = []string{
-		"https://en.wikipedia.org"}
+		"https://en.wikipedia.org", "http://www.91lym.com/"}
 )
 
 func start(url string) {
