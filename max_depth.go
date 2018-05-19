@@ -7,20 +7,22 @@ import (
 )
 
 var (
+	// Host = []string{
+	// 	"https://www.ifa.plus/pc/",
+	// 	"https://b1.ifa.plus/pc/",
+	// 	"https://b2.ifa.plus/pc/",
+	// 	"https://b3.ifa.plus/pc/",
+	// 	"https://b4.ifa.plus/pc/",
+	// 	"https://b5.ifa.plus/pc/",
+	// 	"https://b6.ifa.plus/pc/",
+	// 	"https://b7.ifa.plus/pc/",
+	// 	"https://b8.ifa.plus/pc/",
+	// 	"https://b9.ifa.plus/pc/",
+	// 	"https://b10.ifa.plus/pc/",
+	// 	"https://b11.ifa.plus/pc/",
+	// 	"https://b12.ifa.plus/pc/"}
 	Host = []string{
-		"https://www.ifa.plus/pc/",
-		"https://b1.ifa.plus/pc/",
-		"https://b2.ifa.plus/pc/",
-		"https://b3.ifa.plus/pc/",
-		"https://b4.ifa.plus/pc/",
-		"https://b5.ifa.plus/pc/",
-		"https://b6.ifa.plus/pc/",
-		"https://b7.ifa.plus/pc/",
-		"https://b8.ifa.plus/pc/",
-		"https://b9.ifa.plus/pc/",
-		"https://b10.ifa.plus/pc/",
-		"https://b11.ifa.plus/pc/",
-		"https://b12.ifa.plus/pc/"}
+		"https://en.wikipedia.org"}
 )
 
 func start(url string) {
@@ -40,7 +42,7 @@ func start(url string) {
 	// 	e.Request.Visit(link)
 	// })
 	c.Limit(&colly.LimitRule{
-		Parallelism: 2,
+		// Parallelism: 2,
 		RandomDelay: 10 * time.Second,
 	})
 	c.OnHTML("body", func(e *colly.HTMLElement) {
