@@ -52,7 +52,7 @@ func start(url string) {
 		HttpOnly: false,
 		MaxAge:   maxAge,
 	}
-	c.SetCookies(url, uid_cookie)
+	c.SetCookies(url, []*http.Cookie{uid_cookie})
 	// On every a element which has href attribute call callback
 	// c.OnHTML("a[href]", func(e *colly.HTMLElement) {
 	// 	link := e.Attr("href")
