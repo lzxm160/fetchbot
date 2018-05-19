@@ -16,19 +16,19 @@ import (
 
 var (
 	Host = []string{
-		"https://www.ifa.plus",
-		"https://b1.ifa.plus",
-		"https://b2.ifa.plus",
-		"https://b3.ifa.plus",
-		"https://b4.ifa.plus",
-		"https://b5.ifa.plus",
-		"https://b6.ifa.plus",
-		"https://b7.ifa.plus",
-		"https://b8.ifa.plus",
-		"https://b9.ifa.plus",
-		"https://b10.ifa.plus",
-		"https://b11.ifa.plus",
-		"https://b12.ifa.plus"}
+		"https://www.ifa.plus/pc/",
+		"https://b1.ifa.plus/pc/",
+		"https://b2.ifa.plus/pc/",
+		"https://b3.ifa.plus/pc/",
+		"https://b4.ifa.plus/pc/",
+		"https://b5.ifa.plus/pc/",
+		"https://b6.ifa.plus/pc/",
+		"https://b7.ifa.plus/pc/",
+		"https://b8.ifa.plus/pc/",
+		"https://b9.ifa.plus/pc/",
+		"https://b10.ifa.plus/pc/",
+		"https://b11.ifa.plus/pc/",
+		"https://b12.ifa.plus/pc/"}
 )
 
 func get(url string) {
