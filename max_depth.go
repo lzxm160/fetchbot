@@ -79,9 +79,22 @@ func start(url string) {
 		// 	return
 		// }
 		// ioutil.WriteFile(colly.SanitizeFileName(e.Request.Ctx.Get("date")+"_"+e.Request.Ctx.Get("slug"))+".json", jsonData, 0644)
-		link := e.Attr("href")
+		// link := e.Attr("href")
 		// Print link
-		fmt.Printf("Link found: %q -> %s\n", e.Text, link)
+		// fmt.Printf("Link found: %q -> %s\n", e.Text, link)
+
+		e.ForEach("table tbody tr", func(_ int, el *colly.HTMLElement) {
+			// mail := Mail{
+			// 	Title:   el.ChildText("td:nth-of-type(1)"),
+			// 	Link:    el.ChildAttr("td:nth-of-type(1)", "href"),
+			// 	Author:  el.ChildText("td:nth-of-type(2)"),
+			// 	Date:    el.ChildText("td:nth-of-type(3)"),
+			// 	Message: el.ChildText("td:nth-of-type(4)"),
+			// }
+			// threads[threadSubject] = append(threads[threadSubject], mail)
+			fmt.Printf("时间\t比赛名称\t4:4额度\n")
+			fmr.Printf("%s\t%s\t%s\n", el.ChildText("td:time"), el.ChildText("td:time"), el.ChildText("td:four good"))
+		})
 
 		// c.Visit(e.Request.AbsoluteURL(link))
 
