@@ -93,7 +93,7 @@ func start(url string) {
 			// }
 			// threads[threadSubject] = append(threads[threadSubject], mail)
 			fmt.Printf("时间\t比赛名称\t4:4额度\n")
-			fmr.Printf("%s\t%s\t%s\n", el.ChildText("td:time"), el.ChildText("td:time"), el.ChildText("td:four good"))
+			fmt.Printf("%s\t%s\t%s\n", el.ChildText("td:time"), el.ChildText("td:time"), el.ChildText("td:four good"))
 		})
 
 		// c.Visit(e.Request.AbsoluteURL(link))
