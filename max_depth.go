@@ -124,11 +124,12 @@ func main() {
 	// }()
 	// <-c
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		var ret string
 		for _, u := range Host {
-			ret := start(u)
+			ret = start(u)
 		}
 		fmt.Fprintf(w, ret)
 	})
 
-	log.Fatal(http.ListenAndServe(":80", nil))
+	fmt.Println(http.ListenAndServe(":80", nil))
 }
