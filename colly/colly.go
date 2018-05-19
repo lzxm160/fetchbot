@@ -837,6 +837,10 @@ func (c *Collector) SetStorage(s storage.Storage) error {
 	c.backend.Client.Jar = createJar(s)
 	return nil
 }
+func (c *Collector) GetStorage() storage.Storage {
+
+	return c.store
+}
 
 // SetProxy sets a proxy for the collector. This method overrides the previously
 // used http.Transport if the type of the transport is not http.RoundTripper.

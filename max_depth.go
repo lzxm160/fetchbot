@@ -29,11 +29,17 @@ var (
 func start(url string) {
 	// Instantiate default collector
 	c := colly.NewCollector(
-		// MaxDepth is 1, so only the links on the scraped page
-		// is visited, and no further links are followed
-		colly.MaxDepth(10),
+	// MaxDepth is 1, so only the links on the scraped page
+	// is visited, and no further links are followed
+	// colly.MaxDepth(10),
 	)
-
+	c.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
+	c.MaxDepth = 10
+	c.IgnoreRobotsTxt = true
+	// c.SetCookies()
+	sto := c.GetStorage()
+	sto.SetCookies(url, "connect.sid=s%3AwnC_5kcvATUaATV_qeEC-A0Ofb4-P9PY.TZmZCMRd%2BvoVzdKCQ3eO8tk7%2FMt1GN35iGx2JaC22tU")
+	c.SetStorage(sto)
 	// On every a element which has href attribute call callback
 	// c.OnHTML("a[href]", func(e *colly.HTMLElement) {
 	// 	link := e.Attr("href")
