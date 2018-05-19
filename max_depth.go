@@ -82,7 +82,7 @@ func start(url string) {
 		// link := e.Attr("href")
 		// Print link
 		// fmt.Printf("Link found: %q -> %s\n", e.Text, link)
-
+		fmt.Printf("时间\t比赛名称\t4:4额度\n")
 		e.ForEach("table tbody tr", func(_ int, el *colly.HTMLElement) {
 			// mail := Mail{
 			// 	Title:   el.ChildText("td:nth-of-type(1)"),
@@ -92,8 +92,8 @@ func start(url string) {
 			// 	Message: el.ChildText("td:nth-of-type(4)"),
 			// }
 			// threads[threadSubject] = append(threads[threadSubject], mail)
-			fmt.Printf("时间\t比赛名称\t4:4额度\n")
-			fmt.Printf("%s\t%s\t%s\n", el.ChildText("td:time"), el.ChildText("td:time"), el.ChildText("td:four good"))
+
+			fmt.Printf("%s\t%s\t%s\n", el.ChildText("td:first-child"), el.ChildText("td:nth-child(2)"), el.ChildText("td:nth-child(3)"))
 		})
 
 		// c.Visit(e.Request.AbsoluteURL(link))
