@@ -82,7 +82,7 @@ func start(url string) {
 		// link := e.Attr("href")
 		// Print link
 		// fmt.Printf("Link found: %q -> %s\n", e.Text, link)
-		fmt.Printf("时间\t比赛名称\t4:4额度\n")
+		fmt.Printf("时间\t\t比赛名称\t4:4额度\n")
 		e.ForEach("table tbody tr", func(_ int, el *colly.HTMLElement) {
 			// mail := Mail{
 			// 	Title:   el.ChildText("td:nth-of-type(1)"),
