@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
-
 	"./colly"
+	"fmt"
+	"time"
 )
 
 func main() {
