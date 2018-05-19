@@ -22,6 +22,10 @@ func main() {
 	// 	// Visit link found on page
 	// 	e.Request.Visit(link)
 	// })
+	c.Limit(&colly.LimitRule{
+		Parallelism: 2,
+		RandomDelay: 10 * time.Second,
+	})
 	c.OnHTML("body", func(e *colly.HTMLElement) {
 		// t := make([]transcript, 0)
 		// e.ForEach(".topic-media-row", func(_ int, el *colly.HTMLElement) {
@@ -35,7 +39,7 @@ func main() {
 		// 	return
 		// }
 		// ioutil.WriteFile(colly.SanitizeFileName(e.Request.Ctx.Get("date")+"_"+e.Request.Ctx.Get("slug"))+".json", jsonData, 0644)
-		fmt.Println(e)
+		fmt.Println("e:", e)
 	})
 	//lianjie body
 	// Start scraping on https://en.wikipedia.org
