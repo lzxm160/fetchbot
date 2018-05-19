@@ -61,7 +61,9 @@ func main() {
 	c := make(chan int, 1)
 	go func() {
 		for _ = range ticker.C {
-			get(Host[0])
+			for _, u := range Host {
+				get(u)
+			}
 		}
 	}()
 	<-c
