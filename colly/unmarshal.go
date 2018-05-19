@@ -19,7 +19,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/PuerkitoBio/goquery"
+	"../goquery"
 )
 
 // Unmarshal is a shorthand for colly.UnmarshalHTML
