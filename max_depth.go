@@ -40,18 +40,18 @@ func start(url string) {
 	// sto := c.GetStorage()
 	// sto.SetCookies(url, "connect.sid=s%3AwnC_5kcvATUaATV_qeEC-A0Ofb4-P9PY.TZmZCMRd%2BvoVzdKCQ3eO8tk7%2FMt1GN35iGx2JaC22tU")
 	// c.SetStorage(sto)
-	COOKIE_MAX_MAX_AGE    := time.Hour * 24 / time.Second   // 单位：秒。
+	COOKIE_MAX_MAX_AGE := time.Hour * 24 / time.Second // 单位：秒。
 	maxAge := int(COOKIE_MAX_MAX_AGE)
-	uid:="s%3AwnC_5kcvATUaATV_qeEC-A0Ofb4-P9PY.TZmZCMRd%2BvoVzdKCQ3eO8tk7%2FMt1GN35iGx2JaC22tU"
-	
-	uid_cookie:=&http.Cookie{
-			Name:   "connect.sid",
-			Value:    uid,
-			Path:     "/",
-			HttpOnly: false,
-			MaxAge:   maxAge
-		}
-	c.SetCookies(url,uid_cookie)
+	uid := "s%3AwnC_5kcvATUaATV_qeEC-A0Ofb4-P9PY.TZmZCMRd%2BvoVzdKCQ3eO8tk7%2FMt1GN35iGx2JaC22tU"
+
+	uid_cookie := &http.Cookie{
+		Name:     "connect.sid",
+		Value:    uid,
+		Path:     "/",
+		HttpOnly: false,
+		MaxAge:   maxAge,
+	}
+	c.SetCookies(url, uid_cookie)
 	// On every a element which has href attribute call callback
 	// c.OnHTML("a[href]", func(e *colly.HTMLElement) {
 	// 	link := e.Attr("href")
