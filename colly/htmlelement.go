@@ -17,7 +17,7 @@ package colly
 import (
 	"strings"
 
-	"github.com/PuerkitoBio/goquery"
+	"../goquery"
 	"golang.org/x/net/html"
 )
 
