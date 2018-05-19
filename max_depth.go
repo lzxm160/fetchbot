@@ -47,7 +47,7 @@ func start(url string) {
 		RandomDelay: 10 * time.Second,
 	})
 	c.OnHTML("body", func(e *colly.HTMLElement) {
-		fmt.Println("e:", e)
+		// fmt.Println("e:", e)
 		// t := make([]transcript, 0)
 		// e.ForEach(".topic-media-row", func(_ int, el *colly.HTMLElement) {
 		// 	t = append(t, transcript{
@@ -64,7 +64,7 @@ func start(url string) {
 		// Print link
 		fmt.Printf("Link found: %q -> %s\n", e.Text, link)
 
-		c.Visit(e.Request.AbsoluteURL(link))
+		// c.Visit(e.Request.AbsoluteURL(link))
 
 	})
 	//lianjie body
