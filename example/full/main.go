@@ -39,7 +39,7 @@ func get(url string) {
 	}
 	defer res.Body.Close()
 	if res.StatusCode != 200 {
-		fmt.Printf("status code error: %d %s", res.StatusCode, res.Status)
+		fmt.Printf("status code error: %s %d %s", url, res.StatusCode, res.Status)
 	}
 
 	// Load the HTML document
