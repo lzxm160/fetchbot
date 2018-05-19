@@ -45,5 +45,9 @@ func main() {
 	// Start scraping on https://en.wikipedia.org
 	c.Visit("https://b12.ifa.plus/pc/")
 	// c.Visit("https://en.wikipedia.org")
+	c.OnRequest(func(r *colly.Request) {
+		fmt.Println("Visiting:", r.URL.String())
+
+	})
 	c.Wait()
 }
